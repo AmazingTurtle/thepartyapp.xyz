@@ -1,0 +1,38 @@
+.magicConch {
+  &__answer {
+    font-size: 1.4em;
+    min-height: 50px;
+  }
+
+  &__conch {
+
+    @keyframes opacity-glow {
+      0% {
+        opacity: 0.5;
+      }
+      20% {
+        opacity: 0.6;
+      }
+      40% {
+        opacity: 0.9;
+      }
+      60% {
+        opacity: 0.4;
+      }
+      80% {
+        opacity: 0.6;
+      }
+      100% {
+        opacity: 0.5;
+      }
+    }
+
+    animation: opacity-glow 10s infinite linear;
+    background-image: url('/icons/conch.png');
+    background-size: cover;
+    height: 200px;
+    width: 200px;
+    opacity: 0.5;
+    margin: 16px auto;
+  }
+}

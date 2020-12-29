@@ -1,0 +1,26 @@
+.button {
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  border-radius: 32px;
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+  text-align: center;
+  text-decoration: none;
+  background: transparent;
+  padding: 1em 2em;
+  cursor: pointer;
+  color: #fff;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
+  text-transform: uppercase;
+  font-size: 1em;
+  font-weight: bold;
+  font-family: 'Montserrat', 'Lato', sans-serif;
+  margin-bottom: 16px;
+  transition: all ease-in-out 0.125s;
+  outline: none;
+  user-select: none;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "name": "funkit",
+  "version": "1.0.0",
+  "description": "combines several simple mobile games into a single app",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "export": "next export"
+  },
+  "dependencies": {
+    "@zeit/next-sass": "^1.0.1",
+    "autoprefixer": "^9.7.3",
+    "framer": "^1.1.6",
+    "next": "^9.1.7",
+    "next-offline": "^4.0.6",
+    "node-sass": "^4.13.0",
+    "normalize.css": "^8.0.1",
+    "postcss-easy-import": "^3.0.0",
+    "postcss-flexbugs-fixes": "^4.1.0",
+    "postscss": "^1.6.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "not dead",
+    "> 1%"
+  ]
+}

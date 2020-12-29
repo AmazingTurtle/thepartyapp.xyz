@@ -1,0 +1,43 @@
+.never {
+  &--level-0 &__ihavenever .emoji {
+    &:after {
+      content: "🧒";
+    }
+  }
+
+  &--level-1 &__ihavenever .emoji,
+  &--level-2 &__ihavenever .emoji{
+    &:after {
+      content: "🍆";
+    }
+  }
+
+  &__ihavenever {
+
+    &:after {
+      content: "...";
+    }
+
+    .emoji {
+      min-width: 48px;
+      display: inline-block;
+    }
+  }
+
+  &__question {
+    font-size: 1.4em;
+    text-align: center;
+    color: #fff;
+    text-shadow: 0 2px 0 rgba(0, 0, 0, 0.3), 1px 0 0 rgba(0, 0, 0, 0.2), -1px 0 0 rgba(0, 0, 0, 0.2), 0 -1px 0 rgba(0, 0, 0, 0.1);
+
+    min-height: 4em;
+    margin: 2em 0;
+  }
+
+  &__next.button {
+    margin-left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+  }
+
+}

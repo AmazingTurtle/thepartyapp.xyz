@@ -1,0 +1,14 @@
+{
+  "name": "The Party App",
+  "short_name": "PartyApp",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#242424",
+  "theme_color": "#242424",
+  "description": "A free no-ads party app!",
+  "icons": [{
+    "src": "/logo.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  }]
+}

@@ -1,0 +1,81 @@
+.truthOrDare {
+  &__bottle_wrapper {
+    margin: 0 auto 32px auto;
+    width: 200px;
+    height: 200px;
+  }
+
+  &__bottle {
+    background-color: transparent !important;
+
+    &, img {
+      width: 200px;
+      height: 200px;
+    }
+  }
+
+  &__icons {
+    max-width: 200px;
+    margin: 0 auto;
+    $size: 64px;
+
+    &__angle,
+    &__devil {
+      width: $size;
+      height: $size;
+      background-size: cover;
+      margin-bottom: 32px;
+    }
+
+    &__angle {
+      background-image: url('/icons/angle.png');
+    }
+    &__devil {
+      background-image: url('/icons/devil.png');
+      margin-left: auto;
+    }
+  }
+
+  &__text {
+    font-size: 1.4em;
+    text-align: center;
+    color: #fff;
+    text-shadow: 0 2px 0 rgba(0, 0, 0, 0.3), 1px 0 0 rgba(0, 0, 0, 0.2), -1px 0 0 rgba(0, 0, 0, 0.2), 0 -1px 0 rgba(0, 0, 0, 0.1);
+
+    min-height: 5em;
+  }
+
+  &__bottle-button {
+    cursor: pointer;
+
+    &:hover {
+      .truthOrDare__bottle-button__button,
+      .button {
+        background: rgba(255, 255, 255, 0.1);
+      }
+    }
+
+    &__button {
+      &, img {
+        width: 150px;
+        height: 150px;
+      }
+
+      transition: background ease-in-out 0.125s;
+      margin: 0 auto;
+      padding: 16px;
+      border: 2px solid rgba(255, 255, 255, 0.85);
+      border-radius: 50%;
+    }
+  }
+
+  &__next {
+    &--type-restart.button {
+      margin-top: 16px;
+      border: none;
+      font-weight: 100;
+      opacity: 0.7;
+    }
+  }
+
+}

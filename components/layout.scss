@@ -1,0 +1,122 @@
+@import '~normalize.css/normalize.css';
+@import url('https://fonts.googleapis.com/css?family=Lato|Montserrat&display=block');
+
+html, body {
+  overflow-x: hidden;
+  user-select: none;
+}
+body {
+  position: relative;
+  font-family: 'Lato', sans-serif;
+}
+
+.layout {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #333;
+  overflow-x: hidden;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &,
+  &__container,
+  &__background {
+    min-height: 100vh;
+  }
+
+  &__background,
+  &__container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    min-height: 100vh;
+  }
+
+  &__background {
+    background-image: url('/background.jpg');
+    background-position: center center;
+    background-size: cover;
+    background-color: transparent;
+    filter: brightness(0.2) blur(4px);
+    position: fixed;
+    margin: -16px;
+  }
+
+  &--menu-undefined {
+    grid-template-rows: auto 1fr;
+  }
+
+  &--game-magicConch &__background {
+    background-image: url('/background-conch.jpg');
+    background-position: 75% 50%;
+  }
+
+  &__container {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+
+    &__header {
+      padding: 32px;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      cursor: pointer;
+
+      &__back {
+        margin-top:16px;
+        height: 22px;
+        margin-right: 32px;
+        max-width: 32px;
+      }
+
+      &__logo {
+        display: block;
+        width: 100%;
+      }
+
+    }
+
+    &__content {
+      position: relative;
+      padding: 32px;
+    }
+
+    &__menu {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: 1fr;
+      background: rgba(0, 0, 0, 0.7);
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+      z-index: 1;
+
+      &__entry {
+        width: 100%;
+        height: 0;
+        padding-bottom: 100%;
+        position: relative;
+
+        & > div {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translateX(-50%) translateY(-50%);
+          text-align: center;
+
+          a {
+            text-decoration: none;
+            color: #fff;
+
+            &:hover {
+              color: #bbb;
+            }
+          }
+        }
+      }
+    }
+  }
+}

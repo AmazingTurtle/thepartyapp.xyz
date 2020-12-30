@@ -8,11 +8,6 @@ module.exports = withSass(
         },
         ...withOffline({
             workboxOpts: {
-                globPatterns: ['public/**'],
-                globDirectory: '.',
-                modifyUrlPrefix: {
-                    'public': ''
-                },
                 runtimeCaching: [
                     {
                         urlPattern: /^https?.*/,

@@ -3,19 +3,18 @@ import Layout from "../../components/layout";
 import truthOrDare from "./truthOrDare.json";
 import dynamic from 'next/dynamic'
 import Button from "../../components/button";
-import './truthOrDare.scss';
 import {TitleText} from "../../components/titleText";
+import './truthOrDare.scss';
 
 const BottleSpin = dynamic(() => import('../../components/bottleSpin'), {
     ssr: false
 });
 
 const ROLL_THE_DICE_INITIAL = 0;
-const ROLL_THE_DICE_PICK = 1;
-const ROLL_THE_DICE_RESTART = 2;
+const ROLL_THE_DICE_RESTART = 1;
 
 function TruthOrDarePage() {
-    const [rollTheDice, setRollTheDice] = useState(ROLL_THE_DICE_INITIAL);
+    const [rollTheDice, setRollTheDice] = useState(ROLL_THE_DICE_RESTART);
     const [randomRotation, setRandomRotation] = useState(0);
 
     const [currentTruthOrDare, setCurrentTruthOrDare] = useState({
@@ -24,22 +23,20 @@ function TruthOrDarePage() {
     });
 
     const actuallyRollIt = useMemo(() => () => {
-        const numberOfRandomSpins = 4;
-        const numberOfAlwaysSpins = 1;
+        const numberOfRandomSpins = 5;
+        const numberOfAlwaysSpins = 2;
         const circleRad = 360;
-        setRandomRotation(Math.floor((Math.random() + numberOfAlwaysSpins) * circleRad + (numberOfRandomSpins * Math.random() * 360)));
+        setRandomRotation(Math.floor((Math.random() + numberOfAlwaysSpins) * circleRad + (numberOfRandomSpins * Math.random() * circleRad)));
         setRollTheDice(ROLL_THE_DICE_INITIAL);
     }, []);
 
     const rollTheDiceContinue = useCallback(() => {
         if (rollTheDice === ROLL_THE_DICE_INITIAL) {
-            setRollTheDice(ROLL_THE_DICE_PICK);
-        } else if (rollTheDice === ROLL_THE_DICE_PICK) {
             setRollTheDice(ROLL_THE_DICE_RESTART);
         } else if (rollTheDice === ROLL_THE_DICE_RESTART) {
             actuallyRollIt();
         }
-    }, [rollTheDice]);
+    }, [setRollTheDice, actuallyRollIt, rollTheDice]);
 
 
     const truthCallback = useCallback(() => {
@@ -74,27 +71,23 @@ function TruthOrDarePage() {
         return (
             <Layout>
                 <div className="truthOrDare truthOrDare--state-roll-the-dice-initial">
-                    <TitleText>Spinning...</TitleText>
                     <div className="truthOrDare__bottle_wrapper">
                         <BottleSpin spin={randomRotation} />
                     </div>
-                    <Button className="button--opacity-low truthOrDare__next truthOrDare__next--type-pick" click={rollTheDiceContinue}>Next</Button>
-                </div>
-            </Layout>
-        );
-    }
-    else if (rollTheDice === ROLL_THE_DICE_PICK) {
-        return (
-            <Layout>
-                <div className="truthOrDare truthOrDare--state-roll-the-dice-pick">
-                    <TitleText>Truth or Dare</TitleText>
-                    <div className="truthOrDare__icons">
-                        <div className="truthOrDare__icons__angle" />
-                        <div className="truthOrDare__icons__devil" />
+
+                    <Button className="button--opacity-low truthOrDare__next truthOrDare__next--type-truth" click={truthCallback}>Wahrheit</Button>
+                    <Button className="button--opacity-low truthOrDare__next truthOrDare__next--type-dare" click={dareCallback}>Pflicht</Button>
+                    <Button className="button--opacity-low truthOrDare__next truthOrDare__next--type-random" click={randomCallback}>Zufall</Button>
+
+                    <div className="truthOrDare__rules">
+                        <h1>Es gibt Regeln?</h1>
+                        <ul>
+                            <li>Eine Pflicht überspringen geht - kostet aber einen Shot</li>
+                            <li>Radler ist kein Alkohol, trink das was die anderen auch trinken!</li>
+                            <li>Du darfst nicht zwei mal hintereinander die Pflicht überspringen</li>
+                            <li>Wenn die Wahrheit/Pflicht nicht auf die Zutrifft oder du keine Antwort hast, wähle nochmal aus der Kategorie oder trinke einen.</li>
+                        </ul>
                     </div>
-                    <Button className="button--opacity-low truthOrDare__next truthOrDare__next--type-truth" click={truthCallback}>Truth</Button>
-                    <Button className="button--opacity-low truthOrDare__next truthOrDare__next--type-dare" click={dareCallback}>Dare</Button>
-                    <Button className="button--opacity-low truthOrDare__next truthOrDare__next--type-random" click={randomCallback}>Be Lucky</Button>
                 </div>
             </Layout>
         );
@@ -103,13 +96,13 @@ function TruthOrDarePage() {
     return (
         <Layout>
             <div className="truthOrDare truthOrDare--state-roll-the-dice-restart">
-                <TitleText>{currentTruthOrDare.category === 'truth' ? 'Truth' : 'Dare'}</TitleText>
+                <TitleText>{currentTruthOrDare.category === 'truth' ? 'Wahrheit' : 'Pflicht'}</TitleText>
                 <div className="truthOrDare__text">{currentTruthOrDare.text}</div>
                 <div className="truthOrDare__bottle-button" onClick={rollTheDiceHot}>
                     <div className="truthOrDare__bottle-button__button">
                         <img alt="bottle" src="/icons/bottle.png" />
                     </div>
-                    <Button className="truthOrDare__next truthOrDare__next--type-restart">Press to rotate bottle</Button>
+                    <Button className="truthOrDare__next truthOrDare__next--type-restart" click={rollTheDiceContinue}>Noch mal</Button>
                 </div>
             </div>
         </Layout>

@@ -1,4 +1,17 @@
 .truthOrDare {
+  color: #fff;
+
+  &__rules {
+    h1 {
+      margin-top: 32px;
+      font-size: 1em;
+    }
+    ul {
+      margin: 0;
+      padding: 0 0 0 20px;
+    }
+  }
+
   &__bottle_wrapper {
     margin: 0 auto 32px auto;
     width: 200px;

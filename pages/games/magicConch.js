@@ -7,7 +7,7 @@ import './magicConch.scss';
 
 function MagicConchPage() {
 
-    const [answer, setAnswer] = useState('It knows the answer to everything!');
+    const [answer, setAnswer] = useState('Frag einfach und du bekommst eine Antwort!');
     const whatsup = useCallback(() => {
         setAnswer(magicConch.answers[Math.floor(Math.random() * magicConch.answers.length)])
     }, []);
@@ -15,7 +15,7 @@ function MagicConchPage() {
     return (
         <Layout game="magicConch">
             <TitleText>
-                The magic conch
+                Die magische Miesmuschel
             </TitleText>
             <TitleText className="magicConch__answer">{answer}</TitleText>
             <div className="magicConch__conch"/>

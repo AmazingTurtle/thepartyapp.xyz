@@ -1,16 +1,25 @@
 {
   "answers": [
-    "Yes",
-    "No",
-    "Maybe",
-    "Perhaps",
-    "Definitely not",
-    "Absolutely",
-    "Sure thing",
-    "Nope",
-    "Yesn't",
-    "What?",
-    "Are you serious?",
-    ""
+    "Ja",
+    "Nein",
+    "Vielleicht",
+    "Möglicherweise",
+    "Defintiv nicht!",
+    "Absolut",
+    "Klar",
+    "Nööö",
+    "Jaein",
+    "Was?",
+    "Ernsthaft?",
+    "Frag doch einfach noch mal!",
+    "Ich beantworte deine Fragen nicht mehr.",
+    "Kann sein",
+    "Der Typ neben dir weiß bescheid",
+    "Kann sein",
+    "Immer doch",
+    "Ähm...",
+    "Ich denke nicht",
+    "Ich denke schon",
+    "Die Antwort auf diese Frage kennst nur du"
   ]
 }

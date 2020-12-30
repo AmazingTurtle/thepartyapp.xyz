@@ -10,9 +10,8 @@ function IndexPage() {
             <TitleText>Pick a game</TitleText>
             <div className="games-list">
                 <Button className="button--opacity-low" click="/games/never">Never Ever</Button>
-                <Button className="button--opacity-low" click="/games/truthOrDare">Truth or Dare</Button>
-                <Button className="button--opacity-low" click="/games/magicConch">Magic Conch</Button>
-                <Button className="button--opacity-low" click="/games/comingSoon">...</Button>
+                <Button className="button--opacity-low" click="/games/truthOrDare">Wahrheit oder Pflicht</Button>
+                <Button className="button--opacity-low" click="/games/magicConch">Magische Miesmuschel</Button>
             </div>
             <div className="author">
                 an App by <a href="https://github.com/AmazingTurtle" target="_blank">Felix Faust</a>

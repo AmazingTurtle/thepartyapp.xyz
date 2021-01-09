@@ -1,6 +1,6 @@
-import React from "react";
-import Layout from "../../components/layout";
-import {TitleText} from "../../components/titleText";
+import React from 'react';
+import Layout from '../../components/layout';
+import {TitleText} from '../../components/titleText';
 
 function BigKingsCupPage() {
     return (
@@ -15,4 +15,4 @@ function BigKingsCupPage() {
     );
 }
 
-export default BigKingsCupPage
+export default BigKingsCupPage;

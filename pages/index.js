@@ -1,7 +1,7 @@
-import React from "react";
-import Layout from "../components/layout";
-import Button from "../components/button";
-import {TitleText} from "../components/titleText";
+import React from 'react';
+import Button from '../components/button';
+import Layout from '../components/layout';
+import {TitleText} from '../components/titleText';
 
 function IndexPage() {
     return (
@@ -20,4 +20,4 @@ function IndexPage() {
     );
 }
 
-export default IndexPage
+export default IndexPage;

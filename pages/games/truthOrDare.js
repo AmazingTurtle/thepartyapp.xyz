@@ -1,9 +1,9 @@
-import React, {useCallback, useEffect, useState, useMemo} from "react";
-import Layout from "../../components/layout";
-import truthOrDare from "./truthOrDare.json";
-import dynamic from 'next/dynamic'
-import Button from "../../components/button";
-import {TitleText} from "../../components/titleText";
+import dynamic from 'next/dynamic';
+import React, {useCallback, useEffect, useMemo, useState} from 'react';
+import Button from '../../components/button';
+import Layout from '../../components/layout';
+import {TitleText} from '../../components/titleText';
+import truthOrDare from './truthOrDare.json';
 
 const BottleSpin = dynamic(() => import('../../components/bottleSpin'), {
     ssr: false
@@ -71,12 +71,15 @@ function TruthOrDarePage() {
             <Layout>
                 <div className="truthOrDare truthOrDare--state-roll-the-dice-initial">
                     <div className="truthOrDare__bottle_wrapper">
-                        <BottleSpin spin={randomRotation} />
+                        <BottleSpin spin={randomRotation}/>
                     </div>
 
-                    <Button className="button--opacity-low truthOrDare__next truthOrDare__next--type-truth" click={truthCallback}>Wahrheit</Button>
-                    <Button className="button--opacity-low truthOrDare__next truthOrDare__next--type-dare" click={dareCallback}>Pflicht</Button>
-                    <Button className="button--opacity-low truthOrDare__next truthOrDare__next--type-random" click={randomCallback}>Zufall</Button>
+                    <Button className="button--opacity-low truthOrDare__next truthOrDare__next--type-truth"
+                            click={truthCallback}>Wahrheit</Button>
+                    <Button className="button--opacity-low truthOrDare__next truthOrDare__next--type-dare"
+                            click={dareCallback}>Pflicht</Button>
+                    <Button className="button--opacity-low truthOrDare__next truthOrDare__next--type-random"
+                            click={randomCallback}>Zufall</Button>
 
                     <div className="truthOrDare__rules">
                         <h1>Es gibt Regeln?</h1>
@@ -84,7 +87,9 @@ function TruthOrDarePage() {
                             <li>Eine Pflicht überspringen geht - kostet aber einen Shot</li>
                             <li>Radler ist kein Alkohol, trink das was die anderen auch trinken!</li>
                             <li>Du darfst nicht zwei mal hintereinander die Pflicht überspringen</li>
-                            <li>Wenn die Wahrheit/Pflicht nicht auf die Zutrifft oder du keine Antwort hast, wähle nochmal aus der Kategorie oder trinke einen.</li>
+                            <li>Wenn die Wahrheit/Pflicht nicht auf die Zutrifft oder du keine Antwort hast, wähle
+                                nochmal aus der Kategorie oder trinke einen.
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -99,13 +104,14 @@ function TruthOrDarePage() {
                 <div className="truthOrDare__text">{currentTruthOrDare.text}</div>
                 <div className="truthOrDare__bottle-button" onClick={rollTheDiceHot}>
                     <div className="truthOrDare__bottle-button__button">
-                        <img alt="bottle" src="/icons/bottle.svg" />
+                        <img alt="bottle" src="/icons/bottle.svg"/>
                     </div>
-                    <Button className="truthOrDare__next truthOrDare__next--type-restart" click={rollTheDiceContinue}>Noch mal</Button>
+                    <Button className="truthOrDare__next truthOrDare__next--type-restart" click={rollTheDiceContinue}>Noch
+                        mal</Button>
                 </div>
             </div>
         </Layout>
     );
 }
 
-export default TruthOrDarePage
+export default TruthOrDarePage;

@@ -1,14 +1,14 @@
-import React, {useCallback, useState} from "react";
-import Layout from "../../components/layout";
-import {TitleText} from "../../components/titleText";
-import Button from "../../components/button";
-import magicConch from "./magicConch.json";
+import React, {useCallback, useState} from 'react';
+import Button from '../../components/button';
+import Layout from '../../components/layout';
+import {TitleText} from '../../components/titleText';
+import magicConch from './magicConch.json';
 
 function MagicConchPage() {
 
     const [answer, setAnswer] = useState('Frag einfach und du bekommst eine Antwort!');
     const whatsup = useCallback(() => {
-        setAnswer(magicConch.answers[Math.floor(Math.random() * magicConch.answers.length)])
+        setAnswer(magicConch.answers[Math.floor(Math.random() * magicConch.answers.length)]);
     }, []);
 
     return (
@@ -23,4 +23,4 @@ function MagicConchPage() {
     );
 }
 
-export default MagicConchPage
+export default MagicConchPage;

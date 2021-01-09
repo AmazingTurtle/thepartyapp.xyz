@@ -1,6 +1,6 @@
-import React from "react";
-import Layout from "../../components/layout";
-import {TitleText} from "../../components/titleText";
+import React from 'react';
+import Layout from '../../components/layout';
+import {TitleText} from '../../components/titleText';
 
 function ComingSoonPage() {
     return (
@@ -12,4 +12,4 @@ function ComingSoonPage() {
     );
 }
 
-export default ComingSoonPage
+export default ComingSoonPage;

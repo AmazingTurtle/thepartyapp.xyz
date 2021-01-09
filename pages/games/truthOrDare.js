@@ -4,7 +4,6 @@ import truthOrDare from "./truthOrDare.json";
 import dynamic from 'next/dynamic'
 import Button from "../../components/button";
 import {TitleText} from "../../components/titleText";
-import './truthOrDare.scss';
 
 const BottleSpin = dynamic(() => import('../../components/bottleSpin'), {
     ssr: false
@@ -100,7 +99,7 @@ function TruthOrDarePage() {
                 <div className="truthOrDare__text">{currentTruthOrDare.text}</div>
                 <div className="truthOrDare__bottle-button" onClick={rollTheDiceHot}>
                     <div className="truthOrDare__bottle-button__button">
-                        <img alt="bottle" src="/icons/bottle.png" />
+                        <img alt="bottle" src="/icons/bottle.svg" />
                     </div>
                     <Button className="truthOrDare__next truthOrDare__next--type-restart" click={rollTheDiceContinue}>Noch mal</Button>
                 </div>

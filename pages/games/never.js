@@ -3,7 +3,6 @@ import never from "./never.json";
 import Layout from "../../components/layout";
 import Button from "../../components/button";
 import {TitleText} from "../../components/titleText";
-import './never.scss';
 
 function NeverPage() {
     const [questionsToPick, setQuestionsToPick] = useState(never.questions);

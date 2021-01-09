@@ -3,7 +3,6 @@ import Layout from "../../components/layout";
 import {TitleText} from "../../components/titleText";
 import Button from "../../components/button";
 import magicConch from "./magicConch.json";
-import './magicConch.scss';
 
 function MagicConchPage() {
 

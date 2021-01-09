@@ -1,6 +1,5 @@
 import React, {useMemo} from "react";
 import Link from "next/link";
-import './layout.scss';
 import Head from "next/head";
 
 function MenuEntry({click, children}) {

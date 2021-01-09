@@ -12,7 +12,7 @@ function BottleSpin({spin}) {
                 duration: 2
             }}
         >
-            <img alt="bottle" src="/icons/bottle.png" />
+            <img alt="bottle" src="/icons/bottle.svg" />
         </Frame>
     );
 }

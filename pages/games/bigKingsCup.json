@@ -1,0 +1,106 @@
+{
+  "cards": [
+    "club_1",
+    "club_2",
+    "club_3",
+    "club_4",
+    "club_5",
+    "club_6",
+    "club_7",
+    "club_8",
+    "club_9",
+    "club_king",
+    "club_queen",
+    "club_jack",
+    "diamond_1",
+    "diamond_2",
+    "diamond_3",
+    "diamond_4",
+    "diamond_5",
+    "diamond_6",
+    "diamond_7",
+    "diamond_8",
+    "diamond_9",
+    "diamond_king",
+    "diamond_queen",
+    "diamond_jack",
+    "heart_1",
+    "heart_2",
+    "heart_3",
+    "heart_4",
+    "heart_5",
+    "heart_6",
+    "heart_7",
+    "heart_8",
+    "heart_9",
+    "heart_king",
+    "heart_queen",
+    "heart_jack",
+    "spade_1",
+    "spade_2",
+    "spade_3",
+    "spade_4",
+    "spade_5",
+    "spade_6",
+    "spade_7",
+    "spade_8",
+    "spade_9",
+    "spade_king",
+    "spade_queen",
+    "spade_jack"
+  ],
+  "explain": {
+    "1": {
+      "title": "Alle trinken",
+      "text": "Der Kollektivpegel wird hochgeputscht."
+    },
+    "2": {
+      "title": "Kategorie Wörter",
+      "text": "Suche ein Genre aus (z.B. Obstarten, Getränkemarken, Zigaretten) und nenne einen Begriff daraus. Reihum muss jeder ein neues Wort aus dem Genre nennen. Der erste, dem keins mehr einfällt oder einen bereits genannten Begriff nennt, muss einen Schluck trinken!"
+    },
+    "3": {
+      "title": "Reimen",
+      "text": "Suche ein beliebiges Wort aus (z.B. Tisch). Reihum muss jeder ein sich darauf reimendes Wort (z.B. Fisch,..) nennen. Der erste, dem keins mehr einfällt oder einen bereits genannten Begriff nennt, muss einen Schluck trinken!"
+    },
+    "4": {
+      "title": "Fragemeister",
+      "text": "Dir darf keiner mehr eine Frage beantworten – egal welcher Art. Dies kann und sollst du natürlich ausnutzen, um die anderen zum Trinken zu bringen. Denn wer antwortet, muss trinken. Du hast den Status „Fragemeister“ solange, bis ein neuer Spieler dazu ernennt wird."
+    },
+    "5": {
+      "title": "Counter",
+      "text": "Suche eine Zahl zwischen 3 und 9 aus. Es wird reihum gezählt. Jedoch muss bei jeder Zahl, welche durch die ausgewählte teilbar ist oder in der diese Ziffer vorkommt, nicht die Zahl sondern ein vorher festzulegendes Wort genannt werden muss (Empfehlung: FICKEN). Das sieht dann folgendermaßen aus (bei der gewählten Zahl 3): 1, 2, ficken, 4, 5, ficken, 7, 8, ficken, 10, 11, ficken, ficken, 14… usw. Wer sich vertut, inwiefern auch immer, muss trinken."
+    },
+    "6": {
+      "title": "Klokarte",
+      "text": "Da vor allem Bier gut auf die Blase geht, ist es sehr nützlich, auf der Toilette sich dem Harndrang zu entledigen. Dies ist aber nur im Besitz einer Klokarte erlaubt."
+    },
+    "7": {
+      "title": "Selbst trinken",
+      "text": "Dazu gibt es keine Erklärung."
+    },
+    "8": {
+      "title": "Daumenmeister",
+      "text": "Du bist nun der Daumenmeister. Dies bedeutet, dass du beliebig oft und nach Lust und Laune deinen Daumen auf die Tischkante legen kannst. Nun müssen alle anderen ebenfalls ihren Daumen auf die Tischkante legen. Der letzte, der es checkt, muss trinken."
+    },
+    "9": {
+      "title": "Regel ausdenken",
+      "text": "Du darfst dir eine Regel ausdenken, die für den Rest des Spiels gilt! Wer die Regeln missachtet, muss einen Schluck trinken. Vorschläge sind: Man darf generell keine Namen mehr nennen oder alle Leute heißen McLovin – Man darf auf niemanden mehr zeigen – Man muss vorm Trinken aufstehen und sich im Kreis drehen – Man darf das Wort „trinken“ nicht mehr sagen – Man muss mit der linken Hand trinken"
+    },
+    "10": {
+      "title": "10 Schlucke verteilen",
+      "text": "Du darfst an die übrigen Mitspieler zehn Schlucke verteilen. Hierbei gelten wie immer jegliche Regeln."
+    },
+    "jack": {
+      "title": "Männer trinken",
+      "text": "Dazu gibt es keine Erklärung."
+    },
+    "queen": {
+      "title": "Frauen trinken",
+      "text": "Dazu gibt es keine Erklärung."
+    },
+    "king": {
+      "title": "King's Cup",
+      "text": "Füll ein großes Glas in der Mitte mit einem beliebigen Getränk deiner Wahl, so dass es im Anschluss zu einem Viertel gefüllt ist. Der Spieler, welcher den zweiten König zieht, füllt das Glas bis zur Hälfte, der dritte zu drei Vierteln. Der vierte König muss seinen eigenen Glasinhalt dazukippen und das große Glas (den Big King’s Cup) auf einen Schlag trinken! PROST!"
+    }
+  }
+}

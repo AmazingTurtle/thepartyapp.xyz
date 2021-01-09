@@ -10,7 +10,7 @@ function IndexPage() {
             <div className="games-list">
                 <Button className="button--opacity-low" click="/games/never">Ich hab noch nie</Button>
                 <Button className="button--opacity-low" click="/games/truthOrDare">Wahrheit oder Pflicht</Button>
-                {/*<Button className="button--opacity-low" click="/games/bigKingsCup">Big Kings Cup</Button>*/}
+                <Button className="button--opacity-low" click="/games/bigKingsCup">Big King's Cup</Button>
                 <Button className="button--opacity-low" click="/games/magicConch">Magische Miesmuschel</Button>
             </div>
             <div className="author">

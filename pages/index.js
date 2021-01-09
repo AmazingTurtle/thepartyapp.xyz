@@ -6,9 +6,9 @@ import {TitleText} from "../components/titleText";
 function IndexPage() {
     return (
         <Layout>
-            <TitleText>Pick a game</TitleText>
+            <TitleText>Wähle ein Spiel</TitleText>
             <div className="games-list">
-                <Button className="button--opacity-low" click="/games/never">Never Ever</Button>
+                <Button className="button--opacity-low" click="/games/never">Ich hab noch nie</Button>
                 <Button className="button--opacity-low" click="/games/truthOrDare">Wahrheit oder Pflicht</Button>
                 {/*<Button className="button--opacity-low" click="/games/bigKingsCup">Big Kings Cup</Button>*/}
                 <Button className="button--opacity-low" click="/games/magicConch">Magische Miesmuschel</Button>

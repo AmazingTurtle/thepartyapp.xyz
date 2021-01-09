@@ -45,7 +45,7 @@ function NeverPage() {
         <Layout menu={menu}>
             <div className={`never never--level-${question.level}`}>
                 <TitleText className="never__ihavenever">
-                    <span className="emoji" />Ich hab noch nie...
+                    <span className="emoji" />Ich hab noch nie
                 </TitleText>
                 <div className="never__question">{question.question}</div>
                 <Button className="never__next" click={newQuestionCallback}>Next</Button>

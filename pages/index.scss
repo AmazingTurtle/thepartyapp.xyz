@@ -3,10 +3,13 @@
   font-size: 0.9em;
   position: absolute;
   bottom: 16px;
+  line-height: 24px;
 }
 
 .author {
   right: 16px;
+  max-width: 170px;
+  text-align: right;
 }
 
 .privacy-link {

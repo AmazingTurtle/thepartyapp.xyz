@@ -18,7 +18,8 @@ function IndexPage() {
                 <Link href="/privacy"><a>Datenschutz</a></Link>
             </div>
             <div className="author">
-                eine App von <a href="https://github.com/AmazingTurtle" target="_blank">Felix Faust</a>
+                eine App von <a href="https://github.com/AmazingTurtle" target="_blank">Felix Faust </a>
+                und <a href="https://juliandik.com/" target="_blank">Julian Dik</a>
             </div>
         </Layout>
     );

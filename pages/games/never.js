@@ -10,7 +10,12 @@ function NeverPage() {
     const [question, setQuestion] = useState({question: '...', level: 0});
 
     const newQuestionCallback = useCallback(() => {
-        let filteredQuestions = questionFilter !== undefined ? questionsToPick.filter(question => question.level === questionFilter) : questionsToPick;
+        let filteredQuestions = questionFilter !== undefined
+            ? questionsToPick.filter(question => {
+                if (questionFilter === 0) return question.level === questionFilter;
+                if (questionFilter === 1) return question.level >= questionFilter;
+            })
+            : questionsToPick;
 
         // de-duplicate
         if (filteredQuestions.length === 0) {

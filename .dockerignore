@@ -1,0 +1,9 @@
+.dockerignore
+.gitignore
+.nvmrc
+Dockerfile
+
+.git/
+.idea/
+.next/
+node_modules/

@@ -1,10 +1,15 @@
 @import '~normalize.css/normalize.css';
 @import url('https://fonts.googleapis.com/css?family=Lato|Montserrat&display=swap');
 
+html {
+  overflow-y: scroll;
+}
+
 html, body {
   overflow-x: hidden;
   user-select: none;
 }
+
 body {
   position: relative;
   font-family: 'Lato', sans-serif;
@@ -17,10 +22,6 @@ body {
   background-color: #333;
   overflow-x: hidden;
 
-  &::-webkit-scrollbar {
-    display: none;
-  }
-
   &,
   &__container,
   &__background {
@@ -29,7 +30,6 @@ body {
 
   &__background,
   &__container {
-    position: absolute;
     top: 0;
     left: 0;
     right: 0;
@@ -56,6 +56,21 @@ body {
     background-position: 75% 50%;
   }
 
+  &--game-gigalo-default &__background {
+    background: #00ffff;
+    filter: brightness(0.4);
+  }
+
+  &--game-gigalo-hot &__background {
+    background: #ff0000;
+    filter: brightness(0.4);
+  }
+
+  &--game-gigalo-silly &__background {
+    background: #f000f0;
+    filter: brightness(0.4);
+  }
+
   &__container {
     display: grid;
     grid-template-rows: auto 1fr auto;
@@ -64,22 +79,23 @@ body {
       padding: 32px;
       z-index: 1;
       display: grid;
-      grid-template-columns: auto 1fr;
+      grid-template-columns: 64px auto;
+      grid-column-gap: 16px;
       align-items: center;
       cursor: pointer;
 
+      @media (max-width: 420px) {
+        grid-template-columns: 16px auto;
+        grid-column-gap: 8px;
+      }
+
       &__back {
-        height: 22px;
-        margin-right: 32px;
-        max-width: 32px;
+        margin-bottom: 4px;
+        @media (min-width: 421px) {
+          padding: 16px;
+          margin-bottom: 8px;
+        }
       }
-
-      &__logo {
-        margin-top: 8px;
-        display: block;
-        width: 100%;
-      }
-
     }
 
     &__content {
@@ -89,7 +105,7 @@ body {
 
     &__menu {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       grid-template-rows: 1fr;
       background: rgba(0, 0, 0, 0.7);
       box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
@@ -111,6 +127,7 @@ body {
           a {
             text-decoration: none;
             color: #fff;
+            padding: 38px;
 
             &:hover {
               color: #bbb;

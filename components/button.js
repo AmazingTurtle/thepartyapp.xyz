@@ -1,14 +1,13 @@
 import Link from "next/link";
 import React from "react";
-import "./button.scss";
 
-function Button({click, children, className}) {
-    return typeof click === 'string' && (
-        <Link href={click}>
+function Button({onClick, children, className}) {
+    return typeof onClick === 'string' && (
+        <Link href={onClick}>
             <a className={`button ${className || ''}`}>{children}</a>
         </Link>
     ) || (
-        <a className={`button ${className || ''}`} href="#" onClick={click}>{children}</a>
+        <a className={`button ${className || ''}`} href="#" onClick={onClick}>{children}</a>
     );
 }
 

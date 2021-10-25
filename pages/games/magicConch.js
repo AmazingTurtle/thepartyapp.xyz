@@ -6,8 +6,8 @@ import magicConch from './magicConch.json';
 
 function MagicConchPage() {
 
-    const [answer, setAnswer] = useState('Frag einfach und du bekommst eine Antwort!');
-    const whatsup = useCallback(() => {
+    const [answer, setAnswer] = useState('Frag die magische Miesmuschel ein Ja/Nein Antwort und drücke auf den unteren Button!');
+    const onClick = useCallback(() => {
         setAnswer(magicConch.answers[Math.floor(Math.random() * magicConch.answers.length)]);
     }, []);
 
@@ -18,7 +18,7 @@ function MagicConchPage() {
             </TitleText>
             <TitleText className="magicConch__answer">{answer}</TitleText>
             <div className="magicConch__conch"/>
-            <Button click={whatsup}>What's up</Button>
+            <Button onClick={onClick}>Gib mir eine Antwort</Button>
         </Layout>
     );
 }

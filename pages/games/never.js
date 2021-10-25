@@ -4,7 +4,7 @@ import Layout from '../../components/layout';
 import {TitleText} from '../../components/titleText';
 import never from './never.json';
 
-function NeverPage() {
+export default function NeverPage() {
     const [questionsToPick, setQuestionsToPick] = useState(never.questions);
     const [questionFilter, setQuestionFilter] = useState(0);
     const [question, setQuestion] = useState({question: '...', level: 0});
@@ -53,10 +53,8 @@ function NeverPage() {
                     <span className="emoji"/>Ich hab noch nie
                 </TitleText>
                 <div className="never__question">{question.question}</div>
-                <Button className="never__next" click={newQuestionCallback}>Next</Button>
+                <Button className="never__next" onClick={newQuestionCallback}>Next</Button>
             </div>
         </Layout>
     );
 }
-
-export default NeverPage;

@@ -1,20 +1,19 @@
 // next.config.js
 const PHASE_PRODUCTION_BUILD = require('next/constants');
 
-const withSass = require('@zeit/next-sass');
 const withPWA = require('next-pwa');
 
 module.exports = (phase) => {
 
-    let sassConfiguration = {
+    let baseConfiguration = {
         postcssLoaderOptions: {
             plugins: [require('autoprefixer')({})]
         }
     };
 
     if (phase === PHASE_PRODUCTION_BUILD) {
-        sassConfiguration = {
-            ...sassConfiguration,
+        baseConfiguration = {
+            ...baseConfiguration,
             ...withPWA({
                 pwa: {
                     dest: 'public'
@@ -23,6 +22,6 @@ module.exports = (phase) => {
         };
     }
 
-    return withSass(sassConfiguration);
+    return baseConfiguration;
 
 };

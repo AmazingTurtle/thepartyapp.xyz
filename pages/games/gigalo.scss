@@ -1,0 +1,83 @@
+.gigalo {
+  color: #fff;
+  height: 100%;
+  box-sizing: border-box;
+  position: relative;
+  padding-bottom: 128px;
+
+  &__rule {
+    font-size: 1.4em;
+    text-align: center;
+    color: #fff;
+    text-shadow: 0 2px 0 rgba(0, 0, 0, 0.3), 1px 0 0 rgba(0, 0, 0, 0.2), -1px 0 0 rgba(0, 0, 0, 0.2), 0 -1px 0 rgba(0, 0, 0, 0.1);
+    min-height: 5em;
+    padding-bottom: 1em;
+    word-spacing: 3px;
+    line-height: 1.2;
+  }
+
+  &__rules {
+    h1 {
+      margin-top: 32px;
+      font-size: 1em;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0 0 0 20px;
+    }
+  }
+
+  &__tag {
+    background-color: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 2px 1px rgba(0, 0, 0, 0.065);
+    border-radius: 3px;
+    line-height: 1.1;
+    padding: 0 0.25em;
+    display: inline-block;
+  }
+
+  &__player, &__add-player {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    }
+
+    input {
+      border: 2px solid #fff;
+      border-radius: 8px;
+      background-color: #fff;
+      padding: 8px;
+    }
+
+    .button {
+      display: inline-block;
+      width: auto;
+      margin: 0;
+      padding: 6px 12px;
+      font-size: 1em;
+    }
+  }
+
+  &__add-player {
+    padding: 8px 8px 8px 0;
+  }
+
+  &__player {
+    padding: 8px;
+  }
+
+  &__bottom {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    .button:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

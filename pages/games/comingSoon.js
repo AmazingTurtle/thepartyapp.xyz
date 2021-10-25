@@ -2,14 +2,12 @@ import React from 'react';
 import Layout from '../../components/layout';
 import {TitleText} from '../../components/titleText';
 
-function ComingSoonPage() {
+export default function ComingSoonPage() {
     return (
         <Layout>
             <TitleText>
-                More games to come soon!
+                Weitere Spiele kommen noch und sind in Arbeit!
             </TitleText>
         </Layout>
     );
 }
-
-export default ComingSoonPage;

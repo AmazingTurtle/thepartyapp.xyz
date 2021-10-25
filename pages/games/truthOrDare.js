@@ -12,7 +12,7 @@ const BottleSpin = dynamic(() => import('../../components/bottleSpin'), {
 const ROLL_THE_DICE_INITIAL = 0;
 const ROLL_THE_DICE_RESTART = 1;
 
-function TruthOrDarePage() {
+export default function TruthOrDarePage() {
     const [rollTheDice, setRollTheDice] = useState(ROLL_THE_DICE_RESTART);
     const [randomRotation, setRandomRotation] = useState(0);
 
@@ -75,11 +75,11 @@ function TruthOrDarePage() {
                     </div>
 
                     <Button className="button--opacity-low truthOrDare__next truthOrDare__next--type-truth"
-                            click={truthCallback}>Wahrheit</Button>
+                            onClick={truthCallback}>Wahrheit</Button>
                     <Button className="button--opacity-low truthOrDare__next truthOrDare__next--type-dare"
-                            click={dareCallback}>Pflicht</Button>
+                            onClick={dareCallback}>Pflicht</Button>
                     <Button className="button--opacity-low truthOrDare__next truthOrDare__next--type-random"
-                            click={randomCallback}>Zufall</Button>
+                            onClick={randomCallback}>Zufall</Button>
 
                     <div className="truthOrDare__rules">
                         <h1>Es gibt Regeln?</h1>
@@ -106,12 +106,10 @@ function TruthOrDarePage() {
                     <div className="truthOrDare__bottle-button__button">
                         <img alt="bottle" src="/icons/bottle.svg"/>
                     </div>
-                    <Button className="truthOrDare__next truthOrDare__next--type-restart" click={rollTheDiceContinue}>Noch
+                    <Button className="truthOrDare__next truthOrDare__next--type-restart" onClick={rollTheDiceContinue}>Noch
                         mal</Button>
                 </div>
             </div>
         </Layout>
     );
 }
-
-export default TruthOrDarePage;

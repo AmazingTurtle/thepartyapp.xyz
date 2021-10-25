@@ -9,10 +9,11 @@ function IndexPage() {
         <Layout>
             <TitleText>Wähle ein Spiel</TitleText>
             <div className="games-list">
-                <Button className="button--opacity-low" click="/games/never">Ich hab noch nie</Button>
-                <Button className="button--opacity-low" click="/games/truthOrDare">Wahrheit oder Pflicht</Button>
-                <Button className="button--opacity-low" click="/games/bigKingsCup">Big King's Cup</Button>
-                <Button className="button--opacity-low" click="/games/magicConch">Magische Miesmuschel</Button>
+                <Button className="button--opacity-low" onClick="/games/never">Ich hab noch nie</Button>
+                <Button className="button--opacity-low" onClick="/games/truthOrDare">Wahrheit oder Pflicht</Button>
+                <Button className="button--opacity-low" onClick="/games/bigKingsCup">Big King's Cup</Button>
+                <Button className="button--opacity-low" onClick="/games/gigalo">Gigalo</Button>
+                <Button className="button--opacity-low" onClick="/games/magicConch">Magische Miesmuschel</Button>
             </div>
             <div className="privacy-link">
                 <Link href="/privacy"><a>Datenschutz</a></Link>

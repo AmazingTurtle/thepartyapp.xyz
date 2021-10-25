@@ -1,19 +1,22 @@
 import React from "react";
-import {Frame} from "framer";
+import styled, {keyframes} from 'styled-components';
+
+const spinAnimation = spin => keyframes`
+        0% { transform: rotate(0deg); }
+      100% { transform: rotate(${spin}deg); }
+    `;
+const StyledDiv = styled.div`
+      animation: ${props => spinAnimation(props.spin)} 2s ease forwards;
+    `;
 
 function BottleSpin({spin}) {
     return (
-        <Frame
+        <StyledDiv
             className="truthOrDare__bottle"
-            animate={{
-                rotate: spin
-            }}
-            transition={{
-                duration: 2
-            }}
+            spin={spin}
         >
             <img alt="bottle" src="/icons/bottle.svg" />
-        </Frame>
+        </StyledDiv>
     );
 }
 

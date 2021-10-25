@@ -2,7 +2,7 @@ import React from 'react';
 export function GigaloRule({rule, availablePlayers}) {
 
     const availablePlayersCopy = [...availablePlayers];
-    const maxNumberOfShots = Math.max(1, Math.min(Math.floor(availablePlayers.length / 0.7), 8));
+    const maxNumberOfShots = Math.max(1, Math.min(Math.floor((availablePlayers.length + 1) * 0.8), 8));
 
     const formatted = rule.text.split(/\s/g).map((part, partIndex) => {
         const playerNameIndex = part.indexOf('%s');

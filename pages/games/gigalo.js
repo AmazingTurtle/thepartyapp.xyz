@@ -17,7 +17,6 @@ const gigaloRules = gigaloJson.Gigalo.filter(gigalo => GIGALO_FILTER_PACK_NAME.i
 export default function GigaloPage() {
     const [availablePlayers, setAvailablePlayers] = useState([]);
     const filteredGigaloRules = useMemo(() => {
-        console.log('new available players!', availablePlayers);
         return gigaloRules.filter(gigalo => availablePlayers.length >= gigalo.nb_players);
     }, [availablePlayers, availablePlayers.length]);
 
@@ -29,6 +28,8 @@ export default function GigaloPage() {
         const localStoragePlayers = window.localStorage.getItem('gigalo_players');
         if (localStoragePlayers !== null) {
             setAvailablePlayers(JSON.parse(localStoragePlayers));
+        } else {
+            setAvailablePlayers([]);
         }
     }, [setAvailablePlayers]);
 

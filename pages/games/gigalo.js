@@ -15,11 +15,11 @@ const GIGALO_FILTER_PACK_NAME = [
 const gigaloRules = gigaloJson.Gigalo.filter(gigalo => GIGALO_FILTER_PACK_NAME.indexOf(gigalo.pack_name) !== -1);
 
 export default function GigaloPage() {
-    console.info(`got ${gigaloRules.length} usable rules (${gigaloJson.Gigalo.length} total)`);
     const [availablePlayers, setAvailablePlayers] = useState([]);
     const filteredGigaloRules = useMemo(() => {
+        console.log('new available players!', availablePlayers);
         return gigaloRules.filter(gigalo => availablePlayers.length >= gigalo.nb_players);
-    }, [availablePlayers.length]);
+    }, [availablePlayers, availablePlayers.length]);
 
     const updateLocalPlayersInStorage = useCallback(players => {
         window.localStorage.setItem('gigalo_players', JSON.stringify(players));
@@ -61,7 +61,7 @@ export default function GigaloPage() {
 
     const [isConfiguring, setConfiguring] = useState(false);
 
-    const [rulesToPick, setRulesToPick] = useState([...filteredGigaloRules]);
+    const [rulesToPick, setRulesToPick] = useState([]);
     const [rule, setRule] = useState(undefined);
 
     const toggleConfigureCallback = useCallback(() => {
@@ -83,9 +83,15 @@ export default function GigaloPage() {
         });
 
         setRule(picked);
-    }, [setRulesToPick, setRule]);
+    }, [rulesToPick, setRulesToPick, setRule]);
 
-    useEffect(newQuestionCallback, []);
+    useEffect(() => {
+        if (!isConfiguring) {
+            console.info(`got ${filteredGigaloRules.length} usable rules (${gigaloJson.Gigalo.length} total)`);
+            setRulesToPick([...filteredGigaloRules]);
+            newQuestionCallback();
+        }
+    }, [isConfiguring, setRulesToPick, filteredGigaloRules]);
 
     const gameName = `gigalo-${rule?.pack_name || 'default'}`
 

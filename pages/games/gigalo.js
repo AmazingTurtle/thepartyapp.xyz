@@ -4,6 +4,7 @@ import {TitleText} from '../../components/titleText';
 import {GigaloRule} from '../../components/gigaloRule';
 import Button from '../../components/button';
 import {GigaloPlayer} from '../../components/gigaloPlayer';
+import {shuffle} from '../../utils/shuffle';
 
 const gigaloJson = require('./gigalo.json');
 const GIGALO_FILTER_PACK_NAME = [
@@ -16,6 +17,8 @@ const gigaloRules = gigaloJson.Gigalo.filter(gigalo => GIGALO_FILTER_PACK_NAME.i
 
 export default function GigaloPage() {
     const [availablePlayers, setAvailablePlayers] = useState([]);
+    const [currentPlayers, setCurrentPlayers] = useState([]);
+    const [keyStack, setKeyStack] = useState([]);
     const filteredGigaloRules = useMemo(() => {
         return gigaloRules.filter(gigalo => availablePlayers.length >= gigalo.nb_players);
     }, [availablePlayers, availablePlayers.length]);
@@ -70,21 +73,56 @@ export default function GigaloPage() {
     }, [setConfiguring]);
 
     const newQuestionCallback = useCallback(() => {
-        const pickIndex = Math.floor(Math.random() * rulesToPick.length);
-        const picked = rulesToPick[pickIndex];
+        const doUnstack = keyStack.length > 0 && Math.random() < keyStack.length / 5;
 
-        // de-duplicate
-        setRulesToPick(oldRulesToPick => {
-            oldRulesToPick.splice(oldRulesToPick.indexOf(pickIndex), 1);
-            if (oldRulesToPick.length === 0) {
-                console.log('congratulations, you just played through all available gigalo questions, lol');
-                return [...filteredGigaloRules];
-            }
-            return oldRulesToPick;
-        });
+        const actuallyPickable = doUnstack
+            ? [rulesToPick.find(rule => rule.parent_key === keyStack[0].key)]
+            : rulesToPick.filter(rule => {
+                if (keyStack.find(stackEntry => stackEntry.key === rule.key)) return false;
+                return true;
+            });
+        if (actuallyPickable.length === 0) return;
+
+        const pickIndex = Math.floor(Math.random() * actuallyPickable.length);
+        const picked = actuallyPickable[pickIndex];
+
+        const newCurrentPlayers = shuffle(availablePlayers);
+
+        if (picked.key.length > 0) {
+            debugger;
+            console.log('STACKING', picked);
+            setKeyStack(oldKeyStack => {
+                return [{
+                    key: picked.key,
+                    players: newCurrentPlayers
+                }, ...oldKeyStack];
+            })
+        }
+
+        if (doUnstack) {
+            console.log('UNSTACKING', picked);
+            setCurrentPlayers(keyStack[0].players);
+            setKeyStack(oldKeyStack => {
+                oldKeyStack.shift();
+                return [...oldKeyStack];
+            })
+        } else {
+            setCurrentPlayers(newCurrentPlayers);
+
+            // de-duplicate
+            setRulesToPick(oldRulesToPick => {
+                const foundIndex = oldRulesToPick.findIndex(_ => _ === picked);
+                oldRulesToPick.splice(foundIndex, 1);
+                if (oldRulesToPick.length === 0) {
+                    console.log('congratulations, you just played through all available gigalo questions, lol');
+                    return [...filteredGigaloRules];
+                }
+                return oldRulesToPick;
+            });
+        }
 
         setRule(picked);
-    }, [rulesToPick, setRulesToPick, setRule]);
+    }, [rulesToPick, setRulesToPick, setRule, keyStack]);
 
     useEffect(() => {
         if (!isConfiguring) {
@@ -127,7 +165,7 @@ export default function GigaloPage() {
                 ) : (
                     <div className='gigalo__rule'>
                         {rule && (
-                            <GigaloRule rule={rule} availablePlayers={availablePlayers}/>
+                            <GigaloRule rule={rule} currentPlayers={currentPlayers}/>
                         )}
                     </div>
                 )}

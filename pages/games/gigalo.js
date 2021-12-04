@@ -89,8 +89,6 @@ export default function GigaloPage() {
         const newCurrentPlayers = shuffle(availablePlayers);
 
         if (picked.key.length > 0) {
-            debugger;
-            console.log('STACKING', picked);
             setKeyStack(oldKeyStack => {
                 return [{
                     key: picked.key,
@@ -100,7 +98,6 @@ export default function GigaloPage() {
         }
 
         if (doUnstack) {
-            console.log('UNSTACKING', picked);
             setCurrentPlayers(keyStack[0].players);
             setKeyStack(oldKeyStack => {
                 oldKeyStack.shift();

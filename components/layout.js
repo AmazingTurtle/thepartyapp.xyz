@@ -3,16 +3,16 @@ import Link from 'next/link';
 import Head from 'next/head';
 import Image from 'next/image';
 
-function MenuEntry({click, children}) {
+function MenuEntry({onClick, children}) {
     return (
         <div className='layout__container__menu__entry'>
             <div>
-                {typeof click === 'string' && (
-                    <Link href={click}>
+                {typeof onClick === 'string' && (
+                    <Link href={onClick}>
                         <a>{children}</a>
                     </Link>
                 ) || (
-                    <a href='#' onClick={click}>{children}</a>
+                    <a href='#' onClick={onClick}>{children}</a>
                 )}
             </div>
         </div>
@@ -23,7 +23,7 @@ function Layout({children, menu, game}) {
 
     const menuRender = useMemo(() => {
         return menu && menu.map((menuEntry, index) => (
-            <MenuEntry onClick={menuEntry.click} key={menuEntry.key || `layout-menu-entry-${index}`}>
+            <MenuEntry onClick={menuEntry.onClick} key={menuEntry.key || `layout-menu-entry-${index}`}>
                 {menuEntry.content}
             </MenuEntry>
         )) || null;

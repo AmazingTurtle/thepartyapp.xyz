@@ -36,13 +36,13 @@ export default function NeverPage() {
     useEffect(newQuestionCallback, [questionFilter]);
 
     const menu = useMemo(() => [{
-        click: () => setQuestionFilter(0),
+        onClick: () => setQuestionFilter(0),
         content: 'kids'
     }, {
-        click: () => setQuestionFilter(1),
+        onClick: () => setQuestionFilter(1),
         content: '18+'
     }, {
-        click: () => setQuestionFilter(undefined),
+        onClick: () => setQuestionFilter(undefined),
         content: 'alle'
     }], [questionFilter]);
 

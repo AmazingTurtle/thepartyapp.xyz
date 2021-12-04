@@ -32,13 +32,13 @@ export default function TruthOrDarePage() {
         const circleRad = 360;
         setRandomRotation(oldRandomRotation => {
             const newRotation = Math.floor((Math.random() + numberOfAlwaysSpins) * circleRad + (numberOfRandomSpins * Math.random() * circleRad));
-            if (Math.abs(oldRandomRotation - newRotation) < 70) {
-                return newRotation + 70;
+            if (Math.abs(oldRandomRotation - newRotation) < 360 / numberOfPlayers) {
+                return newRotation + 360 / numberOfPlayers;
             }
             return newRotation;
         });
         setRollTheDice(ROLL_THE_DICE_INITIAL);
-    }, []);
+    }, [numberOfPlayers]);
 
     const rollTheDiceContinue = useCallback(() => {
         if (rollTheDice === ROLL_THE_DICE_INITIAL) {

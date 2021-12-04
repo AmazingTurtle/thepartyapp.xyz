@@ -15,6 +15,11 @@ const ROLL_THE_DICE_RESTART = 1;
 export default function TruthOrDarePage() {
     const [rollTheDice, setRollTheDice] = useState(ROLL_THE_DICE_RESTART);
     const [randomRotation, setRandomRotation] = useState(0);
+    const [numberOfPlayers, setNumberOfPlayers] = useState(5);
+
+    const onChangeNumberOfPlayers = useCallback((e) => {
+        setNumberOfPlayers(parseFloat(e.target.value));
+    }, [setNumberOfPlayers]);
 
     const [currentTruthOrDare, setCurrentTruthOrDare] = useState({
         text: '...',
@@ -25,7 +30,13 @@ export default function TruthOrDarePage() {
         const numberOfRandomSpins = 5;
         const numberOfAlwaysSpins = 2;
         const circleRad = 360;
-        setRandomRotation(Math.floor((Math.random() + numberOfAlwaysSpins) * circleRad + (numberOfRandomSpins * Math.random() * circleRad)));
+        setRandomRotation(oldRandomRotation => {
+            const newRotation = Math.floor((Math.random() + numberOfAlwaysSpins) * circleRad + (numberOfRandomSpins * Math.random() * circleRad));
+            if (Math.abs(oldRandomRotation - newRotation) < 70) {
+                return newRotation + 70;
+            }
+            return newRotation;
+        });
         setRollTheDice(ROLL_THE_DICE_INITIAL);
     }, []);
 
@@ -45,6 +56,7 @@ export default function TruthOrDarePage() {
         });
         rollTheDiceContinue();
     }, [rollTheDice]);
+
     const dareCallback = useCallback(() => {
         setCurrentTruthOrDare({
             text: truthOrDare.dare[Math.floor(Math.random() * truthOrDare.dare.length)],
@@ -52,6 +64,7 @@ export default function TruthOrDarePage() {
         });
         rollTheDiceContinue();
     }, [rollTheDice]);
+
     const randomCallback = useCallback(() => {
         const isTruth = Math.random() < 0.5;
         if (isTruth) {
@@ -60,6 +73,17 @@ export default function TruthOrDarePage() {
             dareCallback();
         }
     }, [rollTheDice]);
+
+    const bottleSpinAreas = useMemo(() => {
+        const degrees = 360 / numberOfPlayers;
+        const areas = [];
+        for (let i = 0; i < numberOfPlayers; i++) {
+            areas.push(
+                <div key={`area-${i}-${degrees}`} style={{transform: `rotate(${i * degrees}deg)`}} />
+            )
+        }
+        return areas;
+    }, [numberOfPlayers]);
 
     const rollTheDiceHot = useCallback(() => {
         actuallyRollIt();
@@ -72,6 +96,9 @@ export default function TruthOrDarePage() {
                 <div className="truthOrDare truthOrDare--state-roll-the-dice-initial">
                     <div className="truthOrDare__bottle_wrapper">
                         <BottleSpin spin={randomRotation}/>
+                        <div className="truthOrDare__bottle_wrapper__areas-wrapper">
+                            {bottleSpinAreas}
+                        </div>
                     </div>
 
                     <Button className="button--opacity-low truthOrDare__next truthOrDare__next--type-truth"
@@ -91,6 +118,8 @@ export default function TruthOrDarePage() {
                                 nochmal aus der Kategorie oder trinke einen.
                             </li>
                         </ul>
+                        <h1>Anzahl der Spieler festlegen</h1>
+                        <input type="number" onChange={onChangeNumberOfPlayers} value={numberOfPlayers} />
                     </div>
                 </div>
             </Layout>
@@ -106,8 +135,9 @@ export default function TruthOrDarePage() {
                     <div className="truthOrDare__bottle-button__button">
                         <img alt="bottle" src="/icons/bottle.svg"/>
                     </div>
-                    <Button className="truthOrDare__next truthOrDare__next--type-restart" onClick={rollTheDiceContinue}>Noch
-                        mal</Button>
+                    <Button className="truthOrDare__next truthOrDare__next--type-restart" onClick={rollTheDiceContinue}>
+                        Noch mal
+                    </Button>
                 </div>
             </div>
         </Layout>

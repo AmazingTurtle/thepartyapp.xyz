@@ -1,7 +1,8 @@
 import React from 'react';
+import {shuffle} from '../utils/shuffle';
 export function GigaloRule({rule, availablePlayers}) {
 
-    const availablePlayersCopy = [...availablePlayers];
+    const availablePlayersCopy = shuffle([...availablePlayers]);
     const maxNumberOfShots = Math.max(1, Math.min(Math.floor((availablePlayers.length + 1) * 0.8), 8));
 
     const formatted = rule.text.split(/\s/g).map((part, partIndex) => {

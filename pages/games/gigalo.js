@@ -79,7 +79,7 @@ export default function GigaloPage() {
             ? [rulesToPick.find(rule => rule.parent_key === keyStack[0].key)]
             : rulesToPick.filter(rule => {
                 if (keyStack.find(stackEntry => stackEntry.key === rule.key)) return false; // don't repeat stack questions
-                if (keyStack.parent_key.length > 0) return false; // only do that on unstack
+                if (rule.parent_key.length > 0) return false; // only do that on unstack
                 return true;
             });
         if (actuallyPickable.length === 0) return;
